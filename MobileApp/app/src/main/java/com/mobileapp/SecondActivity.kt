@@ -12,10 +12,11 @@ class SecondActivity : AppCompatActivity() {
         setContentView(R.layout.activity_second)
 
         displayName(intent.getStringExtra("input"))
+        val inputText: EditText = findViewById(R.id.editTextName)
+        inputText.setText(intent.getStringExtra("input"))
 
         var textChangedName = ""
         val buttonConfig: Button = findViewById(R.id.buttonChangeName)
-        val inputText: EditText = findViewById(R.id.editTextName)
 
         buttonConfig.setOnClickListener {
             textChangedName = inputText.text.toString()
