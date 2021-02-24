@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="mainpage">MainPage</string>
+    <string name="launch">Launch</string>
+    <string name="textview">TextView</string>
+    <string name="todo">TODO</string>
+    <string name="secondactivity">SecondActivity</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="save">Save</string>
+    <string name="change_name">Change Name</string>
+    <string name="name">Name</string>
+</resources>
