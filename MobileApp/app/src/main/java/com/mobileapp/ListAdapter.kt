@@ -6,12 +6,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class ListAdapter(var wordList: Map<String, String>) : RecyclerView.Adapter<ListAdapter.ViewHolder>() {
+class ListAdapter(var wordList: Map<String, String>) :
+    RecyclerView.Adapter<ListAdapter.ViewHolder>() {
 
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-            private var wordTextView: TextView = itemView.findViewById(R.id.word)
-            private var translationTextView: TextView = itemView.findViewById(R.id.wordTranslation)
+        private var wordTextView: TextView = itemView.findViewById(R.id.word)
+        private var translationTextView: TextView = itemView.findViewById(R.id.wordTranslation)
 
         fun bind(word: String, translation: String) {
             wordTextView.text = word

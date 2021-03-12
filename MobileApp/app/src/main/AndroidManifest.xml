@@ -11,7 +11,7 @@
         android:theme="@style/Theme.MobileApp">
         <activity android:name=".ThirdActivity"></activity>
         <activity android:name=".SecondActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".FirstActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
