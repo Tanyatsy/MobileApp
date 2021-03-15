@@ -1,27 +1,23 @@
 **Mobile App**
 
-Laboratory work No. 1 - App basic setup
+Laboratory work No. 2 - Basic layout and UI
 
-Laboratory work No.1 consist in performing basic setup of mobile application on selected platform.
+Laboratory work consist in implementation of basic layout and UI of your app.
 
  - I have used Android Studio + Kotlin
 
 Laboratory work task:
 
-Init mobile application on selected platform.
-- I have used Gradle in order to init my app
+Pick a theme for your app:
+- I chose as theme "Translate App";
 
-Create at least 2 screens which transfer data from one screen to another
+Create at least 3 functional screens which transfer data from one screen to another. And at least one screen should display the list with 30 items.
 
-Perform some data changes to data you received in screen No. 2 and pass it back to screen No. 1
-- I have created two different activity, which are connected to each other via function
-```
- #putExtra(String, String)
-```
+- I have created three different activity, which implement translate app functions:
+  - Main page + button which redirects to the next screen.
+  - Second page with two buttons, which redirect to screen with the list and allow to add new words + back button to the main page.
+  - Third page is the list page, which shows 30 items + new ones, which user has added + back button to the second screen.
 
-Add at least one active element on the screen, ex. button, text field and handle its action.
-- I have added button "Change name" which perform action(in my case it changes string to the new one)
-- I have added "back" button which move from one screen to another
+- In order to implement the list with two columns or more I have used "RecyclerView". I have created a row layout for the items and use that layout inside my adapterList.
 
-Some not trivial action handling are welcome :)
-Change Icon of the app to custom one
+- Also my app supports different screen sizes and orientation is mandatory.
