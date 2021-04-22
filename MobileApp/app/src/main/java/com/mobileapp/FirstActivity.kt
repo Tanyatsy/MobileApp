@@ -11,8 +11,14 @@ class FirstActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val button: ImageButton = findViewById(R.id.imageButton)
-        button.setOnClickListener {
+        val buttonTranslation: Button = findViewById(R.id.translate)
+        buttonTranslation.setOnClickListener {
+            val intent = Intent(this@FirstActivity, FourthActivity::class.java)
+            startActivity(intent)
+        }
+
+        val buttonAdd: Button = findViewById(R.id.add)
+        buttonAdd.setOnClickListener {
             val intent = Intent(this@FirstActivity, SecondActivity::class.java)
             startActivity(intent)
         }

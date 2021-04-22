@@ -16,4 +16,6 @@
     <string name="add_your_word">Add your word</string>
     <string name="enter_your_word">Enter your word</string>
     <string name="quick_translate">Quick Translate</string>
+    <string name="translate">Translate</string>
+    <string name="add">Add</string>
 </resources>
