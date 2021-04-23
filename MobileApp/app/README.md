@@ -1,24 +1,24 @@
 **Mobile App**
 
-Laboratory work No. 3 - Application API layer
+Laboratory work No. 4 - Application Architecture
 
-Laboratory work consist in implementing API layer of your app.
+Laboratory work consist in analyzing different presentation layer architectures (ex. MVC, MVP, MVVM and others) and selecting one for implementing it in your project.
 
- - I have used Android Studio + Kotlin
+ - I have used MVC structure.
 
 Laboratory work task:
 
 
-Pick a theme for your app:
-- I chose as theme "Translate App";
+Perform a research on several mobile app architectures:
+- MVC pattern we classify the responsibilities of an application into 3 simple, independent components:
 
-Pick an API it could be public or private:
-- I chose the mockapi.io;
+Model
+View
+Controller
 
-Implement at least 2 GET and 2 POST requests.t least 1 of your request should send data to API by request body in JSON format, but not by URL queries.
-- I have used "Retrofit + coroutines" I made post and get requests in order to save and get the translated words. Also I have connected google translated API in order to translate the words.
-
-I have created one more activity, which implement translate app functions:
-- two fields with input a word and output of rhe translated word
- 
-- Also my app supports different screen sizes and orientation.
+Pick up an architecture which fits the best your project and refactor your code base to selected architecture:
+- I have added MVC for translated words 
+I have implemented word model with the following properties : id, word, translatedWord
+I add Api Service 
+I used XML files like View part
+I add controller for methods with data processing 
