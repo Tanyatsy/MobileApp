@@ -1,41 +1,25 @@
-package com.mobileapp.views
+package com.mobileapp
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.navigation.NavigationView
-import com.mobileapp.R
+import com.mobileapp.databinding.ActivityMainBinding
 
 
 class FirstActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val bindingMain = ActivityMainBinding.inflate(layoutInflater)
 
-        val navigation = findNavController(R.id.fragment)
-        val bottomNavigation : NavigationView = findViewById(R.id.bottomNavigation)
-        val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.firstFragment,
-            R.id.secondFragment,
-            R.id.thirdFragment
-        ))
-        setupActionBarWithNavController(navigation,appBarConfiguration)
+        setContentView(bindingMain.root)
 
-        bottomNavigation.setupWithNavController(navigation)
-
-        val buttonTranslation: Button = findViewById(R.id.translate)
-        buttonTranslation.setOnClickListener {
+        bindingMain.translate?.setOnClickListener {
             val intent = Intent(this@FirstActivity, FourthActivity::class.java)
             startActivity(intent)
         }
 
-        val buttonAdd: Button = findViewById(R.id.add)
-        buttonAdd.setOnClickListener {
+        bindingMain.add?.setOnClickListener {
             val intent = Intent(this@FirstActivity, SecondActivity::class.java)
             startActivity(intent)
         }

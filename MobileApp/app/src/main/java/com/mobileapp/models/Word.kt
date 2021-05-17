@@ -1,6 +1,6 @@
 package com.mobileapp.models
 
-public class Word {
+class Word {
     var id: Int
         get() = id
 
