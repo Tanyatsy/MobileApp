@@ -5,6 +5,7 @@ import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mobileapp.databinding.ActivityThirdBinding
 
 
 class ThirdActivity : AppCompatActivity() {
@@ -13,7 +14,9 @@ class ThirdActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_third)
+        val binding = ActivityThirdBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
         val s = intent.getStringExtra("input")!!.replace("}", "").replace("{", "")
         val values = s.split(",").associate {
             val (left, right) = it.split("=")
@@ -23,13 +26,10 @@ class ThirdActivity : AppCompatActivity() {
         linearLayoutManager = LinearLayoutManager(this)
 
         val adapter = ListAdapter(values)
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        recyclerView.adapter = adapter
-        recyclerView.layoutManager = linearLayoutManager
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = linearLayoutManager
 
-        val buttonBack: ImageButton = findViewById(R.id.imageButton)
-
-        buttonBack.setOnClickListener {
+        binding.imageButton.setOnClickListener {
             finish()
         }
     }

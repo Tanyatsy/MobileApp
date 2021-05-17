@@ -1,18 +1,19 @@
 package com.mobileapp
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.MutableLiveData
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
 import com.google.mlkit.nl.translate.TranslateLanguage
 import com.google.mlkit.nl.translate.Translation
 import com.google.mlkit.nl.translate.TranslatorOptions
+import com.mobileapp.databinding.ActivityFourthBinding
+import com.mobileapp.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,37 +22,29 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
 import retrofit2.Retrofit
-import java.util.*
 
-class FourthActivity : AppCompatActivity(){
-
-    val availableModels = MutableLiveData<List<String>>()
+class FourthActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_fourth)
+        val binding = ActivityFourthBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        val inputTextWord: EditText = findViewById(R.id.inputTextWord)
-        val inputTextTranslated: EditText = findViewById(R.id.inputTextTranslated)
-        val translateButton: Button = findViewById(R.id.translateButton)
-        val saveButton: Button = findViewById(R.id.saveButton)
-        val buttonBack: ImageButton = findViewById(R.id.imageButton)
-
-        buttonBack.setOnClickListener {
+        binding.imageButton.setOnClickListener {
             finish()
         }
 
-        saveButton.setOnClickListener {
+        binding.saveButton.setOnClickListener {
             // Create JSON using JSONObject
             val jsonObject = JSONObject()
             jsonObject.put("word", "Jack")
             jsonObject.put("translatedWord", "John")
 
-            rawJSON("https://607fd5e3a5be5d00176dc5a8.mockapi.io", jsonObject)
+            postJSON("https://607fd5e3a5be5d00176dc5a8.mockapi.io", jsonObject)
         }
 
-        translateButton.setOnClickListener{
-            var word = inputTextWord.text.toString()
+        binding.translateButton.setOnClickListener {
+            var word = binding.inputTextWord.text.toString()
 
             val options = TranslatorOptions.Builder()
                 .setSourceLanguage(TranslateLanguage.ENGLISH)
@@ -61,7 +54,7 @@ class FourthActivity : AppCompatActivity(){
             val englishGermanTranslator = Translation.getClient(options)
             englishGermanTranslator.translate(word)
                 .addOnSuccessListener { translatedText ->
-                    inputTextTranslated.setText(translatedText)
+                    binding.inputTextTranslated.setText(translatedText)
                 }
                 .addOnFailureListener { exception ->
                     println(exception.message)
@@ -69,7 +62,7 @@ class FourthActivity : AppCompatActivity(){
         }
     }
 
-    fun rawJSON(url: String, jsonObject: JSONObject) {
+    fun postJSON(url: String, jsonObject: JSONObject) {
 
         // Create Retrofit
         val retrofit = Retrofit.Builder()
@@ -91,20 +84,12 @@ class FourthActivity : AppCompatActivity(){
 
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful) {
-
-                    // Convert raw JSON to pretty JSON using GSON library
                     val gson = GsonBuilder().setPrettyPrinting().create()
                     val prettyJson = gson.toJson(
-                        JsonParser.parseString(
-                            response.body()
-                                ?.string()
-                        )
+                        JsonParser.parseString(response.body()?.string())
                     )
-
                     Log.d("Pretty Printed JSON :", prettyJson)
-
                 } else {
-
                     Log.e("RETROFIT_ERROR", response.code().toString())
 
                 }
