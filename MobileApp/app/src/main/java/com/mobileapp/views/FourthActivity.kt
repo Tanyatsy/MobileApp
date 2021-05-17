@@ -12,6 +12,7 @@ import com.google.gson.JsonParser
 import com.google.mlkit.nl.translate.TranslateLanguage
 import com.google.mlkit.nl.translate.Translation
 import com.google.mlkit.nl.translate.TranslatorOptions
+import com.mobileapp.services.APIService
 import com.mobileapp.databinding.ActivityFourthBinding
 import com.mobileapp.databinding.ActivityMainBinding
 import kotlinx.coroutines.CoroutineScope

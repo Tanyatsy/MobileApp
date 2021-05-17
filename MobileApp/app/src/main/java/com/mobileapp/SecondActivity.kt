@@ -9,6 +9,7 @@ import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
 import com.mobileapp.databinding.ActivitySecondBinding
 import com.mobileapp.models.Word
+import com.mobileapp.services.APIService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,7 +20,7 @@ import retrofit2.Retrofit
 
 class SecondActivity : AppCompatActivity() {
 
-    lateinit var wordMap: WordController
+     var wordMap: WordController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val binding = ActivitySecondBinding.inflate(layoutInflater)
@@ -33,8 +34,6 @@ class SecondActivity : AppCompatActivity() {
 
         binding.button.setOnClickListener {
             text = binding.inputText.text.toString()
-        button.setOnClickListener {
-            text = inputText.text.toString()
 
             if (!text.equals("")) {
                 val words = text
@@ -77,8 +76,7 @@ class SecondActivity : AppCompatActivity() {
                     val json = JSONArray(prettyJson)
                     for (i in 0 until json.length()) {
                         val item = json.getJSONObject(i)
-                        var word: Word =
-                            Gson().fromJson<Word>(json.getJSONObject(i).toString(), Word::class.java)
+                        val word = Gson().fromJson(item.toString(), Word::class.java)
                         println(word.translatedWord)
                         wordMap.addToWordsMap(item.get("word") as String, item.get("translatedWord") as String)
                     }
