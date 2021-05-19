@@ -7,10 +7,9 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonParser
-import com.mobileapp.controller.WordController
+import com.mobileapp.databinding.ActivitySecondBinding
 import com.mobileapp.models.Word
 import com.mobileapp.services.APIService
-import com.mobileapp.databinding.ActivitySecondBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,14 +20,14 @@ import retrofit2.Retrofit
 
 class SecondActivity : AppCompatActivity() {
 
-    var values : WordController = WordController()
+     var wordMap: WordController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val binding = ActivitySecondBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        var text: String
+        var text = ""
 
         val intent = Intent(this, ThirdActivity::class.java)
         getWords("https://607fd5e3a5be5d00176dc5a8.mockapi.io")
@@ -39,15 +38,15 @@ class SecondActivity : AppCompatActivity() {
             if (!text.equals("")) {
                 val words = text
                 val word = words.split(",", " ", "-")
-                values.addToWordsMap(word[0],word[1])
+                wordMap.addToWordsMap(word[0] ,word[1])
             }
 
-            intent.putExtra("input", values.words.toString())
+            intent.putExtra("input", wordMap.words.toString())
             startActivity(intent)
         }
 
-        binding.buttonToList.setOnClickListener {
-            intent.putExtra("input", values.words.toString())
+            binding.buttonToList.setOnClickListener {
+            intent.putExtra("input",  wordMap.words.toString())
             startActivity(intent)
         }
 
@@ -78,7 +77,8 @@ class SecondActivity : AppCompatActivity() {
                     for (i in 0 until json.length()) {
                         val item = json.getJSONObject(i)
                         val word = Gson().fromJson(item.toString(), Word::class.java)
-                        values.addToWordsMap(word.word,word.translatedWord)
+                        println(word.translatedWord)
+                        wordMap.addToWordsMap(item.get("word") as String, item.get("translatedWord") as String)
                     }
                     Log.d("Pretty Printed JSON :", prettyJson)
                 } else {
