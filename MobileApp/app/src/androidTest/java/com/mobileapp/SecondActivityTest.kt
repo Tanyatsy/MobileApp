@@ -2,6 +2,8 @@ package com.mobileapp
 
 import android.os.Looper
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.mobileapp.services.APIService
+import com.mobileapp.views.SecondActivity
 import junit.framework.TestCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers

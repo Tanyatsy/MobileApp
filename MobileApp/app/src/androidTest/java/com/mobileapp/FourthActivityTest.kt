@@ -7,6 +7,7 @@ import androidx.test.espresso.action.ViewActions.replaceText
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.mobileapp.views.FourthActivity
 import junit.framework.TestCase
 import org.junit.Test
 import org.junit.runner.RunWith
