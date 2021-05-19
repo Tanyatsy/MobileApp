@@ -11,8 +11,6 @@ import com.mobileapp.controller.WordController
 import com.mobileapp.models.Word
 import com.mobileapp.services.APIService
 import com.mobileapp.databinding.ActivitySecondBinding
-import com.mobileapp.models.Word
-import com.mobileapp.services.APIService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
