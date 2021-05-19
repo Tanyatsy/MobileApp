@@ -77,6 +77,17 @@
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/abc_vector_test" />
 
+    <fragment
+        android:id="@+id/secondFragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:navGraph="@navigation/navigation"
+        tools:layout_editor_absoluteY="16dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 

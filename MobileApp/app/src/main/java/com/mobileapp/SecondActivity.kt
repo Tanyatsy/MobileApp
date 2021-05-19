@@ -29,7 +29,7 @@ class SecondActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        var text = ""
+        var text: String
 
         val intent = Intent(this, ThirdActivity::class.java)
         getWords("https://607fd5e3a5be5d00176dc5a8.mockapi.io")
