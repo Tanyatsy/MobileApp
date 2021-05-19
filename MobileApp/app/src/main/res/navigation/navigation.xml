@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/firstFragment"
-        android:name="com.mobileapp.FirstActivity"
+        android:name="com.mobileapp.views.FirstActivity"
         android:label="Welcome"
         tools:layout="@layout/activity_main" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/secondFragment"
-        android:name="com.mobileapp.SecondActivity"
+        android:name="com.mobileapp.views.SecondActivity"
         android:label="About"
         tools:layout="@layout/activity_second" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/thirdFragment"
-        android:name="com.mobileapp.FourthActivity"
+        android:name="com.mobileapp.views.FourthActivity"
         android:label="About"
         tools:layout="@layout/activity_fourth" >
         <action
@@ -37,7 +37,7 @@
     </fragment>
     <fragment
         android:id="@+id/fourthFragment"
-        android:name="com.mobileapp.ThirdActivity"
+        android:name="com.mobileapp.views.ThirdActivity"
         android:label="About"
         tools:layout="@layout/activity_third" />
 </navigation>
