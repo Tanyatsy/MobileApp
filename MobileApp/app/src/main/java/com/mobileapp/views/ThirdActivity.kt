@@ -1,11 +1,10 @@
-package com.mobileapp
+package com.mobileapp.views
 
 import android.os.Bundle
-import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.mobileapp.databinding.ActivityThirdBinding
+import com.mobileapp.utils.ListAdapter
 
 
 class ThirdActivity : AppCompatActivity() {
