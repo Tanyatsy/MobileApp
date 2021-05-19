@@ -1,10 +1,11 @@
-package com.mobileapp
+package com.mobileapp.utils
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.mobileapp.R
 
 class ListAdapter(var wordList: Map<String, String>) :
     RecyclerView.Adapter<ListAdapter.ViewHolder>() {

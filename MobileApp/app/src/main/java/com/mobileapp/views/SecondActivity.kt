@@ -1,4 +1,4 @@
-package com.mobileapp
+package com.mobileapp.views
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,6 +12,7 @@ import com.mobileapp.models.Word
 import com.mobileapp.services.APIService
 import com.mobileapp.databinding.ActivitySecondBinding
 import com.mobileapp.models.Word
+import com.mobileapp.services.APIService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
