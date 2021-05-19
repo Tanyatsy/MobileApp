@@ -15,7 +15,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import okhttp3.ResponseBody
 import org.json.JSONArray
+import retrofit2.Response
 import retrofit2.Retrofit
 
 
@@ -56,7 +58,7 @@ class SecondActivity : AppCompatActivity() {
         }
     }
 
-    fun getWords(url: String) {
+    fun getWords(url: String): Response<ResponseBody>? {
 
         // Create Retrofit
         val retrofit = Retrofit.Builder()
@@ -81,10 +83,12 @@ class SecondActivity : AppCompatActivity() {
                         values.addToWordsMap(word.word,word.translatedWord)
                     }
                     Log.d("Pretty Printed JSON :", prettyJson)
+                    return@withContext response
                 } else {
                     Log.e("RETROFIT_ERROR", response.code().toString())
                 }
             }
         }
+        return null
     }
 }
