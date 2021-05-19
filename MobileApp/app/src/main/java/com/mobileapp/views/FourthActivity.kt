@@ -10,7 +10,6 @@ import com.google.mlkit.nl.translate.Translation
 import com.google.mlkit.nl.translate.TranslatorOptions
 import com.mobileapp.services.APIService
 import com.mobileapp.databinding.ActivityFourthBinding
-import com.mobileapp.services.APIService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
